@@ -1,0 +1,32 @@
+<%- include('./template/openTemplate') %>
+    <h4 style="text-align: right;">Welcome To Facebook</h4>
+    <div>
+      <form action="/add/post" method="POST">
+        <button type="submit" class="btn btn-light" style="margin-bottom: 10px;">Add a post</button>
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Name" name="Name" style="width: 20% !important;" required>
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control" placeholder="Message" name="Message" style="width: 50% ; height: auto; overflow: hidden;" required></textarea>
+        </div>
+      </form>
+    </div>
+    <% if(allPosts.length > 0) { %>
+      <% allPosts.forEach ( post => { %>
+       <div class="Parent">
+        <div class="child1">
+          <h3><%= post.Name %></h3>
+          <p style="margin-bottom: 10px; height:60px;line-height:20px; overflow:hidden;"><%= post.Message %></p>
+        </div>
+        <div class="child2">
+          <div style=" position: absolute; bottom: 0;  left: 0;"> 
+            <a href="/feed/<%=post._id%>">See More</a>
+            <p><%= post.createdAt.toDateString() %></p>
+          </div>
+        </div>
+        
+       </div>
+      <%})%>
+    <% } %>
+    
+<%- include('./template/closeTemplate') %>

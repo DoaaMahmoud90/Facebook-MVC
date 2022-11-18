@@ -1,0 +1,15 @@
+<%- include('./template/openTemplate') %>
+    <p>Edit a post</p>
+    <div style="padding-left: 10px ;">
+      <form action="/update/post/<%=result._id%>" method="POST">
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Name" name="Name" style="width: 20% !important;" required value="<%=result.Name %>">
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control" placeholder="Message" name="Message" style="width: 50% ; overflow: hidden; min-height: 70vh;" required><%=result.Message%></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="display: block; margin-left: auto; margin-right: 0;">Submit</button>
+      </form>
+    </div>
+
+<%- include('./template/closeTemplate') %>

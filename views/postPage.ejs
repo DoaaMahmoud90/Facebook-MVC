@@ -1,0 +1,19 @@
+<%- include('./template/openTemplate') %>
+    <h4 style="text-align: right;">Welcome To Facebook</h4>
+    <div class="Parent">
+      <div class="child1">
+        <h3><%= result.Name %></h3>
+        <p style="overflow:hidden;"><%= result.Message %></p>
+      </div>
+      <div class="child2">
+        <div style=" position: absolute; top: 30px;  left: 0;"> 
+          <p><%= result.createdAt.toDateString() %></p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: right;">
+      <button type="submit" class="btn btn-danger"><a href="/feed/delete/<%=result._id%>" style="text-decoration: none; color: white;">Delete</a></button>
+      <button type="submit" class="btn btn-primary"><a href="/feed/edit/<%=result._id%>" style="text-decoration: none; color: white;">Edit Post</a></button>
+    </div>
+    
+<%- include('./template/closeTemplate') %>
